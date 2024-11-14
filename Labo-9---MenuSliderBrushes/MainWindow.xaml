@@ -5,19 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Labo_9___MenuSliderBrushes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Content="Eerste getal:"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Name="numberOneTextBox" HorizontalAlignment="Left" Width="100"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Tweede getal:"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="numberTwoTextBox" HorizontalAlignment="Left" Width="100"/>
-    </Grid>
+        Title="MainWindow" Height="450" Width="800" >
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header=" Bestand">
+                <MenuItem Header="Afsluiten" Name="cloesMenu" Click="cloesMenu_Click"/>
+            </MenuItem>
+            <MenuItem Header="Getallen" Click="MenuItem_Click">
+                <MenuItem Header="Getal1" Name="firstNumberMenu"/>
+                <MenuItem Header="Getal2" Name="secondNumberMenu"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Content="Eerste getal:"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Name="numberOneTextBox" HorizontalAlignment="Left" Width="100" TextChanged="numberOneTextBox_TextChanged"/>
+            <Slider  x:Name="slider1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Minimum="1" Maximum="5" Margin="105,0,0,4"
+                     TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="slider1_ValueChanged" />
+
+            <Label Grid.Column="0" Grid.Row="1" Content="Tweede getal:"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Name="numberTwoTextBox" HorizontalAlignment="Left" Width="100" TextChanged="numberTwoTextBox_TextChanged" />
+            <Slider x:Name="slider2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Minimum="1" Maximum="5" Margin="105,0,0,0"
+                     TickFrequency="1" IsSnapToTickEnabled="True" Grid.Row="1" ValueChanged="slider2_ValueChanged" />
+        </Grid>
+    </DockPanel>
 </Window>
